@@ -1,0 +1,24 @@
+@mixin crossBrowser($property, $val){
+  -webkit-#{$property}: $val;
+  -moz-#{$property}: $val;
+  -ms-#{$property}: $val;
+  #{$property}: $val;
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+      -ms-transform: $property;
+          transform: $property;
+}
+
+@mixin transition($property) {
+  -webkit-transition: $property;
+      -ms-transition: $property;
+          transition: $property;
+}
+
+@mixin border-radius($property) {
+  -webkit-border-radius: $property;
+      -ms-border-radius: $property;
+          border-radius: $property;
+}

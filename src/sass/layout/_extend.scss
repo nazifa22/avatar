@@ -1,0 +1,39 @@
+@import '../layout/mixing';
+
+%parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+%default-section {
+	padding: 100px 0;
+	text-align: center;
+}
+
+%design {
+	content: "";
+	position: absolute;
+	z-index: 9;
+}
+
+%social-icons {
+	width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    @include transition(1s);
+    @include transform(rotate(220deg));
+}
+
+%social-icon-hover {
+	@include border-radius(10px);
+    @include transition(1s);
+}
+
+%icons {
+	@include transform(rotate(-220deg));
+    margin-top: 9px;
+    margin-left: -1px;
+    font-size: 13px;
+}

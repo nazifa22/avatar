@@ -1,0 +1,609 @@
+@import '../base/reset';
+@import '../base/color';
+@import '../base/variables';
+@import '../layout/extend';
+@import '../layout/mixing';
+
+body {
+	font-family: $font;
+}
+
+p, h2, h1, span, a {
+    &::selection {
+        background: $purple;
+        color: $white;
+    }
+}
+
+/*Banner*/
+.banner-section {
+    color: $white;
+	background-image: url("../../img/bg1.jpg");
+    height: 660px; 
+    @extend %parallax;
+
+    .container {
+    	&:first-child {
+    		.row {
+    			padding-top: 50px;
+
+    			img {
+				    width: 35%;
+				}
+
+                .col {
+                    padding-top: 100px;
+
+                    h1 {
+                        font-size: $banner-title;
+                        letter-spacing: 2px;
+                    }
+
+                    p {
+                        font-size: $sub-title;
+                        padding: 20px 0;
+                    }
+                }
+    		}
+    	}
+
+        span {
+            position: absolute;
+            right: 175px;
+            top: 5px;
+
+            .fa-phone {
+                @include transform(rotate(110deg)); 
+            }
+        }
+
+        button {
+            text-transform: uppercase;
+            @include transition(1s);
+        }
+
+        button:hover {
+            margin-top: -10px;
+            @include transition(1s);
+        }
+
+        .btn-danger:hover {
+            color: $white;
+            background-color: $transparent;
+            border-color: $red;
+        }
+    }
+}
+/*Banner*/
+
+/*Header*/
+header {
+    box-shadow: 0 0px 10px 0 $box-shadow;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+
+    .bg-light {
+        background: #fff !important;
+        padding: 30px 110px;
+    }
+
+    .icon {
+        @include transition(1s);
+
+        a {
+            border: 2px solid $purple;
+            padding: 10px 14px !important;
+            @include transform(rotate(225deg));
+            margin-left: 20px;
+        }
+        
+        .fa-envelope {
+            @include transform(rotate(-225deg));
+        }
+
+        &:hover {
+
+            a {
+                border: 2px solid $light-gray;
+                @include transition(1s);
+            }
+        }
+    }
+
+    ul {
+        li {
+            a {
+                &:hover {
+                    color: $purple !important;
+                }
+
+                &:active {
+                    color: $purple !important;
+                }
+            }
+        }
+    }
+
+    .active {
+        color: $purple !important;
+    }
+}
+/*Header*/
+
+/*About*/
+.about-section {
+    @extend %default-section;
+
+    h2 {
+        font-size: $title;
+        color: $title-color;
+    }
+
+    span {
+        font-size: $sub-title;
+        color: $sub-title-color;
+        display: block;
+        border-bottom: 1px solid $shadow;
+        padding-bottom: 20px;
+
+        &::before {
+            @extend %design;
+            background: $red;
+            width: 10px;
+            height: 10px;
+            margin-top: 39px;
+            margin-left: 53px;
+            @include transform(rotate(225deg));
+        }
+    }
+    p {
+        color: $sub-title-color;
+        padding-top: 30px;
+    }
+
+    .icon {
+        margin: 30px 0;
+        background-color: $purple;
+        color: $white;
+        display: inline-block;
+        width: 80px;
+        height: 50px;
+        border-radius: 52px;
+        height: 80px;
+        border: 6px double $white;
+        z-index: 99;
+        @include transition(1s);
+
+        &::before {
+            @extend %design;
+            width: 235px;
+            height: 16px;
+            background: $shadow;
+            z-index: -1 !important;
+            margin-top: 25px;
+            margin-left: -106px;
+            background-image: url(../../img/subtle-light-grunge-texture-4.jpg);
+        }
+        
+        &:hover {
+            box-shadow: 0px 0px 6px 7px $shadow;
+            @include transition(1s);
+        }
+
+        svg {
+            font-size: 25px;
+            height: 65px;
+            border-radius: 47px;
+            color: $white;
+        }
+    }
+
+    .col-lg-4 h2 {
+        &::before {
+            @extend %design;
+            background: #eee;
+            width: 239px;
+            height: 1px;
+            margin-top: 47px;
+            margin-left: -31px;
+        }
+    }
+}
+/*About*/
+/*Team*/
+.team-section{
+    @extend %default-section;
+    background: $bg-color;
+
+    h2 {
+        color: $title-color;
+        font-size: $title;
+    }
+
+    .span {
+        color: $sub-title-color;
+        font-size: $sub-title;
+        margin: 15px 0 65px 0;
+        display: block;
+
+        &::before {
+            @extend %design;
+            background: $red;
+            width: 10px;
+            height: 10px;
+            @include transform(rotate(225deg));
+            margin-top: 38px;
+            margin-left: 90px;
+        }
+
+        &::after {
+            @extend %design;
+            width: 500px;
+            height: 1px;
+            margin-top: 42px;
+            border: 1px dotted;
+            margin-left: -347px;
+            z-index: 1;
+        }
+    }
+
+    .card {
+        padding: 50px 0;
+        border: none !important;
+        @include border-radius(10px);
+        box-shadow: 0px 5px 5px 0px $shadow;
+        height: 475px;
+
+        .card-img-top {
+            border-radius: 62%;
+            width: 55%;
+            margin-left: 55px;
+            display: block;
+        }
+
+        .card-body {
+            .card-title {
+                color: $title-color;
+            }
+
+            .card-text {
+                color: $sub-title-color;
+            }
+        }
+
+        .social-icons {
+            margin-bottom: 40px;
+            height: 50px;
+
+            span {
+                display: inline-block;
+
+                svg {
+                    color: $white;
+                }
+            }
+
+            .fb {
+                @extend %social-icons;
+                background-color: $fb;
+
+                &:hover {
+                    @extend %social-icon-hover;
+                }
+
+                .fa-facebook-f {
+                    @extend %icons;
+                }
+            }
+
+            .twitter {
+                @extend %social-icons;
+                background-color: $twitter;
+
+                &:hover {
+                    @extend %social-icon-hover;
+                }
+
+                .fa-twitter {
+                    @extend %icons;
+                }
+            }
+
+            .linkedin {
+                @extend %social-icons;
+                background-color: $linkedin;
+
+                &:hover {
+                    @extend %social-icon-hover;
+                }
+
+                .fa-linkedin-in {
+                    @extend %icons;
+                }
+            }
+
+            .skype {
+                @extend %social-icons;
+                background-color: $skype;
+
+                &:hover {
+                    @extend %social-icon-hover;
+                }
+
+                .fa-skype {
+                    @extend %icons;
+                }
+            }
+
+            .insta {
+                @extend %social-icons;
+                background-color: $insta;
+
+                &:hover {
+                    @extend %social-icon-hover;
+                }
+
+                .fa-instagram {
+                    @extend %icons;
+                }
+            }
+
+            .dropbox {
+                @extend %social-icons;
+                background-color: $dropbox;
+
+                &:hover {
+                    @extend %social-icon-hover;
+                }
+
+                .fa-dropbox {
+                    @extend %icons;
+                }
+            }
+
+            .pinterest {
+                @extend %social-icons;
+                background-color: $pinterest;
+
+                &:hover {
+                    @extend %social-icon-hover;
+                }
+
+                .fa-pinterest {
+                    @extend %icons;
+                }
+            }
+        }
+
+        a {
+            text-transform: uppercase;
+            @include transition(1s);
+            box-shadow: 0px 3px 5px 0px $button-shadow;
+
+            &:hover {
+                color: $red;
+                background-color: $transparent;
+                border-color: $red;
+                @include transition(1s);
+                margin-top: -10px;
+            }
+        }
+    }
+}
+/*Team*/
+/*Testimonial*/
+.testimonial-section {
+    @extend %parallax;
+    @extend %default-section;
+    background-image: url("../../img/achievement-bg.jpg");
+    color: $white;
+
+    h2 {
+        font-size: $title;
+    }
+
+    span {
+        font-size: $sub-title;
+    }
+
+    p {
+        font-size: $sub-title;
+        text-align: left;
+        padding: 25px 0;
+    }
+
+    footer {
+        color: $white !important;
+        text-align: left;
+    }
+
+    img {
+        width: 75%;
+        border-radius: 108px;
+        border: 10px double $title-color;
+    }
+
+    .carousel-indicators li {
+        position: relative;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        width: 15px;
+        height: 15px;
+        margin-right: 3px;
+        margin-left: 3px;
+        text-indent: -999px;
+        transform: rotate(223deg);
+        cursor: pointer;
+        background-color: $transparent;
+        margin-right: 10px;
+    }
+
+    .carousel-indicators .active {
+        background-color: $red;
+    }
+}
+/*Testimonial*/
+/*Work*/
+.work-section {
+    @extend %default-section;
+
+    .nav-item {
+        margin-bottom: 35px;
+
+        .nav-link {
+            color: $red;
+        }
+
+        .active {
+            color: $white;
+            background-color: $red !important;
+        }
+
+        a:hover {
+            color: $red !important;
+        }
+    }
+
+    img {
+        width: 100%;
+        padding: 15px;
+        @include border-radius(181px);
+        width: 255px;
+        @include transition(0.5s);
+        height: 255px;
+
+        &:hover {
+            padding: 10px;
+            @include transition(0.5s);
+        }
+    }
+
+    .carousel {
+        position: relative;
+        height: 192px;
+    }
+}
+/*Work*/
+/*Contact*/
+.contact-section {
+    @extend %default-section;
+    background: $purple;
+    color: $white;
+    text-align: left;
+
+    h2 {
+        font-size: $title;
+        text-align: center;
+    }
+
+    span {
+        display: block;
+        text-align: center;
+        margin: 20px 0 50px;
+        font-size: $sub-title;
+    }
+
+    .col-md-3 {
+        h2 {
+            text-align: left;
+        }
+
+        span {
+            display: inline-block;
+            margin: 5px 0 20px !important;
+        }
+    }
+
+    p {
+        font-size: $sub-title;
+        line-height: 25px;
+    }
+
+    .social-icons {
+            margin-bottom: 40px;
+            height: 50px;
+
+            span {
+                display: inline-block;
+
+                svg {
+                    color: $white;
+                }
+            }
+
+            .fb {
+                @extend %social-icons;
+                background-color: $fb;
+
+                &:hover {
+                    @extend %social-icon-hover;
+                }
+
+                .fa-facebook-f {
+                    @extend %icons;
+                }
+            }
+
+            .twitter {
+                @extend %social-icons;
+                background-color: $twitter;
+
+                &:hover {
+                    @extend %social-icon-hover;
+                }
+
+                .fa-twitter {
+                    @extend %icons;
+                }
+            }
+
+            .linkedin {
+                @extend %social-icons;
+                background-color: $linkedin;
+
+                &:hover {
+                    @extend %social-icon-hover;
+                }
+
+                .fa-linkedin-in {
+                    @extend %icons;
+                }
+            }
+
+            .skype {
+                @extend %social-icons;
+                background-color: $skype;
+
+                &:hover {
+                    @extend %social-icon-hover;
+                }
+
+                .fa-skype {
+                    @extend %icons;
+                }
+            }
+        }
+
+    button {
+        display: block;
+        width: 100%;
+    }
+
+    .map {
+        margin-top: 60px;
+    }
+}
+/*Contact*/
+/*Footer*/
+.footer {
+    background: $footer;
+    color: $white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: $footer-font;
+}
+/*Footer*/
+.fade {
+  opacity: 0;
+}
